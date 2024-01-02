@@ -28,7 +28,6 @@ The app is the entry point to web portal. It's the first frontend reached. It lo
 
 ## Frontend development
 ### Requirement
-{: .no_toc }
 Follow the instruction to create a dev container: [Developing inside a Container]({% link docs/development/devcontainer.md %})
 
 #### Add Angular to Dev Container
@@ -55,6 +54,22 @@ Edit the file `devcontainer.json` and change the line beginning with `"postCreat
 "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
 ```
 
+In the Dev Container file, you can add Visual Studio Code extensions. For example:
+```json
+{
+  ...
+  	"customizations": {
+		"vscode": {
+			"extensions": [
+				"Angular.ng-template",    // Angular helper
+				"dbaeumer.vscode-eslint", // Code formatter
+				"ms-vscode.live-server"   // HTML file processing for End-to-end report
+			]
+		}
+	}
+}
+```
+
 Rebuild the container to apply the modification. [Learn more about Rebuild Dev Container](https://code.visualstudio.com/docs/devcontainers/create-dev-container#_rebuild)
 
 #### End-to-end test preparation
@@ -77,7 +92,6 @@ In the karma.conf.js file, comment out the line `browser` like the following:
 ...
 ```
 
-### Create an new Angular project for Sandcastle App
-{: .no_toc }
+### Create a new Angular project for Sandcastle App
 `ng new Sandcastle --directory .`
 
