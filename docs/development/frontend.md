@@ -19,6 +19,8 @@ nav_order: 4
 ## Angular
 Angular is a popular open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations. Angular is a complete rewrite from the same team that built AngularJS, its predecessor.
 
+This project use Angular 17.
+
 [Learn more about Angular](https://angular.io/guide/what-is-angular)
 
 ## Sandcastle App
@@ -55,10 +57,27 @@ Edit the file `devcontainer.json` and change the line beginning with `"postCreat
 
 Rebuild the container to apply the modification. [Learn more about Rebuild Dev Container](https://code.visualstudio.com/docs/devcontainers/create-dev-container#_rebuild)
 
-#### TODO: E2E dependencies
+#### End-to-end test preparation
 {: .no_toc }
+Angular include Karma to do end-to-end tests. To make works with Dev Container, it's require some preparation.
 
+Karma looking for a web browser to run the tests. It can connect with your local browser even running inside the Dev Container but still try to find the browser process. To fix that, we just have to remove the browser configuration.
+
+To modify the karma's configuration, generate the configuration file with this command:
+```
+ng generate config karma
+```
+
+In the karma.conf.js file, comment out the line `browser` like the following:
+```js
+...
+    reporters: ['progress', 'kjhtml'],
+    // browsers: ['Chrome'],
+    restartOnFileChange: true
+...
+```
 
 ### Create an new Angular project for Sandcastle App
 {: .no_toc }
 `ng new Sandcastle --directory .`
+
