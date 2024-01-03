@@ -1,11 +1,12 @@
 ---
 layout: default
-title: Backend
-parent: Development
 nav_order: 5
+parent: Backend
+grand_parent: Development
+title: Project preparation
 ---
 
-# Backend
+# Project preparation
 {: .no_toc }
 
 ## Table of contents
@@ -27,9 +28,24 @@ The backend projects focusing on the ASP.NET Core.
 ### Requirement
 Follow the instruction to create a dev container: [Developing inside a Container]({% link docs/development/devcontainer.md %})
 
+#### Add Visual Studio Code Extensions to Dev Container
+In the Dev Container file, you can add Visual Studio Code extensions. For example:
+```json
+{
+  ...
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csharp",    // C# support
+      ]
+    }
+  }
+}
+```
+
 #### Add SSL certificate configuration to Dev Container
 {: .no_toc }
-Add the following in to .devcontainer/devcontainer.json:
+Add the following in to `.devcontainer/devcontainer.json`:
 ```json
 {
   ...
@@ -44,14 +60,12 @@ Add the following in to .devcontainer/devcontainer.json:
 {: .no_toc }
 On you local machine where you web broser is running, run the following command:
 **Windows PowerShell**
-
 ```powershell
 dotnet dev-certs https --trust; dotnet dev-certs https -ep "$env:USERPROFILE/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
 ```
 
 **macOS/Linux terminal**
-
-```powershell
+```bash
 dotnet dev-certs https --trust; dotnet dev-certs https -ep "${HOME}/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
 ```
 
@@ -72,7 +86,6 @@ dotnet new webapi --use-controllers -o src/SecurityAPI
 ```
 
 ### Test the project
-1. In Visual Studio Code, go to `Run & Debug` menu. 
-1. Click `Run & Debug` button. 
-1. Select `.Net 5+ and .Net core`. A new directory named `.vscode` should be created with 2 files: `launch.json` and `tasks.json`.
+1. In Visual Studio Code, with no file open, press `F5`.
+1. If the debug configuration did not generate automatically, select `.Net5+ and .Net Core`.
 1. Press `F5` to launch the debugger. Swagger page should be available at `/swagger/index.html`. For example, `https://localhost:7136/swagger/index.html`

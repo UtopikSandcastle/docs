@@ -1,11 +1,12 @@
 ---
 layout: default
-title: Frontend
-parent: Development
+title: Project preparation
+parent: Frontend
+grand_parent: Development
 nav_order: 4
 ---
 
-# Frontend
+# Project preparation
 {: .no_toc }
 
 ## Table of contents
@@ -54,19 +55,20 @@ Edit the file `devcontainer.json` and change the line beginning with `"postCreat
 "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
 ```
 
+#### Add Visual Studio Code Extensions to Dev Container
 In the Dev Container file, you can add Visual Studio Code extensions. For example:
 ```json
 {
   ...
-  	"customizations": {
-		"vscode": {
-			"extensions": [
-				"Angular.ng-template",    // Angular helper
-				"dbaeumer.vscode-eslint", // Code formatter
-				"ms-vscode.live-server"   // HTML file processing for End-to-end report
-			]
-		}
-	}
+    "customizations": {
+    "vscode": {
+      "extensions": [
+        "Angular.ng-template",    // Angular helper
+        "dbaeumer.vscode-eslint", // Code formatter
+        "ms-vscode.live-server"   // HTML file processing for End-to-end report
+      ]
+    }
+  }
 }
 ```
 

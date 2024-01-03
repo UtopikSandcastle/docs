@@ -16,6 +16,9 @@ nav_order: 3
 
 ---
 
+## References
+- [Learn more about Development Containers](https://containers.dev/)
+
 ## Connect to Docker server
 There are multiple way to connect Visual Studio Code to Docker. Check this documentation to find the must appropriate way for you: [Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers)
 
@@ -29,7 +32,7 @@ If you not already did, open your repository in Visual Studio Code. Open the Com
 
 Select a Docker image. 
 - Frontend use **Node.js & TypeScript**
-- API use **C# (.NET)**
+- Backend API use **C# (.NET)**
 
 Select the **default** version.
 

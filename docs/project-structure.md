@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Project Structure
-parent: Development
 nav_order: 1
 ---
 
