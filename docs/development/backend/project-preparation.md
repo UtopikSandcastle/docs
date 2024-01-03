@@ -28,6 +28,45 @@ The backend projects focusing on the ASP.NET Core.
 ### Requirement
 Follow the instruction to create a dev container: [Developing inside a Container]({% link docs/development/devcontainer.md %})
 
+#### Add a Docker compose file to the `.devcontainer` directory
+The backend API depend on a MongoDB server. An easy way to deploy that server is to use a Docker compose file.
+Create a file named `docker-compose.yml` in the directory `.devcontainer` directory and add it the following:
+```yml
+services:
+  devcontainer:
+    image: mcr.microsoft.com/devcontainers/dotnet:1-8.0-bookworm
+    volumes:
+      - ../..:/workspaces:cached
+      - ~/.aspnet:/home/vscode/.aspnet
+    network_mode: service:mongo
+    command: sleep infinity
+
+  mongo:
+    image: mongo:7.0.4
+    restart: unless-stopped
+
+  mongo-express:
+    image: mongo-express
+    ports:
+      - :8081
+    restart: unless-stopped
+```
+
+Modify the file `.devcontainer/devcontainer.json` and replace the Docker image configuration by the following:
+```json
+{
+  // "name": "C# (.NET)",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  // "image": "mcr.microsoft.com/devcontainers/dotnet:1-8.0-bookworm",
+
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "devcontainer",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  ...
+}
+```
+Now Dev Container going the load Docker compose file before applying the Dev Container configuration.
+
 #### Add Visual Studio Code Extensions to Dev Container
 In the Dev Container file, you can add Visual Studio Code extensions. For example:
 ```json
@@ -36,7 +75,8 @@ In the Dev Container file, you can add Visual Studio Code extensions. For exampl
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-dotnettools.csharp",    // C# support
+        "ms-dotnettools.csharp", // C# Dev Kit for Visual Studio Code
+				"ms-dotnettools.csdevkit" // C# for Visual Studio Code
       ]
     }
   }
@@ -58,7 +98,7 @@ Add the following in to `.devcontainer/devcontainer.json`:
 ```
 #### Export the SSL certificate for development
 {: .no_toc }
-On you local machine where you web broser is running, run the following command:
+On you local machine where you web browser is running, run the following command:
 **Windows PowerShell**
 ```powershell
 dotnet dev-certs https --trust; dotnet dev-certs https -ep "$env:USERPROFILE/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
