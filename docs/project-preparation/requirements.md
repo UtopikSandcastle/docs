@@ -1,11 +1,11 @@
 ---
 layout: default
-title: Requirements
-parent: Development
+title: Prerequisites
+parent: Project Preparation
 nav_order: 1
 ---
 
-# Requirements
+# Prerequisites
 {: .no_toc }
 
 ## Table of contents
