@@ -118,10 +118,6 @@ Your file `devcontainer.json` should look like this:
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
 {
-  // "name": "C# (.NET)",
-  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  // "image": "mcr.microsoft.com/devcontainers/dotnet:1-8.0-bookworm",
-
   "dockerComposeFile": "docker-compose.yml",
   "service": "devcontainer",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
@@ -131,20 +127,8 @@ Your file `devcontainer.json` should look like this:
     "ASPNETCORE_Kestrel__Certificates__Default__Path": "${containerEnv:HOME:/home/vscode}/.aspnet/https/aspnetapp.pfx"
   },
 
-  // Features to add to the dev container. More info: https://containers.dev/features.
-  // "features": {},
-
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // "forwardPorts": [8081],
-  // "portsAttributes": {
-  // 		"8081": {
-  // 			"protocol": "http"
-  // 		}
-  // },
-
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "dotnet new tool-manifest && dotnet tool install Swashbuckle.AspNetCore.Cli --version 6.5.0",
-
 
   // Configure tool-specific properties.
   "customizations": {
@@ -155,9 +139,6 @@ Your file `devcontainer.json` should look like this:
       ]
     }
   }
-
-  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-  // "remoteUser": "root"
 }
 
 ```
