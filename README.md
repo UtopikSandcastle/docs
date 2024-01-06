@@ -1,6 +1,3 @@
-# UtopikSandcastle
+# Utopik Sandcastle
 
-## Documentation
-[View the documentation][UtopikSandcastle's documentation]
-
-[UtopikSandcastle's documentation]: https://utopiksandcastle.github.io/
+[View the documentation](https://utopiksandcastle.github.io/)

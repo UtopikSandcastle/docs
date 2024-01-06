@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Frontend
-parent: Development
+parent: Project Preparation
 nav_order: 4
 ---
 
@@ -23,13 +23,9 @@ This project use Angular 17.
 
 [Learn more about Angular](https://angular.io/guide/what-is-angular)
 
-## Sandcastle App
-The app is the entry point to web portal. It's the first frontend reached. It load the microfrontends.
-
-## Frontend development
-### Requirement
-{: .no_toc }
-Follow the instruction to create a dev container: [Developing inside a Container]({% link docs/development/devcontainer.md %})
+## Development
+### Prerequisites
+Follow the instruction to create a dev container: [Developing inside a Container]({% link docs/project-preparation/devcontainer.md %})
 
 #### Add Angular to Dev Container
 {: .no_toc }
@@ -51,14 +47,34 @@ git update-index --chmod=+x .devcontainer/postCreateCommand.sh
 ```
 
 Edit the file `devcontainer.json` and change the line beginning with `"postCreateCommand":` for the following:
-```json
+```jsonc
 "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
+```
+
+#### Add Visual Studio Code Extensions to Dev Container
+{: .no_toc }
+In the Dev Container file, you can add Visual Studio Code extensions. For example:
+```jsonc
+{
+  ...
+    "customizations": {
+    "vscode": {
+      "extensions": [
+        "Angular.ng-template",    // Angular helper
+        "dbaeumer.vscode-eslint", // Code formatter
+        "ms-vscode.live-server"   // HTML file processing for End-to-end report
+      ]
+    }
+  }
+}
 ```
 
 Rebuild the container to apply the modification. [Learn more about Rebuild Dev Container](https://code.visualstudio.com/docs/devcontainers/create-dev-container#_rebuild)
 
-#### End-to-end test preparation
-{: .no_toc }
+### Create a new Angular project for Sandcastle App
+`ng new Sandcastle --directory .`
+
+### End-to-end test preparation
 Angular include Karma to do end-to-end tests. To make works with Dev Container, it's require some preparation.
 
 Karma looking for a web browser to run the tests. It can connect with your local browser even running inside the Dev Container but still try to find the browser process. To fix that, we just have to remove the browser configuration.
@@ -76,8 +92,3 @@ In the karma.conf.js file, comment out the line `browser` like the following:
     restartOnFileChange: true
 ...
 ```
-
-### Create an new Angular project for Sandcastle App
-{: .no_toc }
-`ng new Sandcastle --directory .`
-

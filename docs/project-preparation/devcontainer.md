@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Developing inside a Container
-parent: Development
-nav_order: 3
+parent: Project Preparation
+nav_order: 2
 ---
 
 # Developing inside a Container
@@ -16,8 +16,13 @@ nav_order: 3
 
 ---
 
+## References
+- [Learn more about Development Containers](https://containers.dev/)
+
 ## Connect to Docker server
 There are multiple way to connect Visual Studio Code to Docker. Check this documentation to find the must appropriate way for you: [Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers)
+
+This project has been created using a remote connection SSH to a Docker server and using Dev Container on that remote server. But it should not matter which way you chose. Dev Container are even so strongly recommended.
 
 ## Clone your repository
 Clone your repository where you whish. The folder going to be mounted inside the container.
@@ -29,7 +34,7 @@ If you not already did, open your repository in Visual Studio Code. Open the Com
 
 Select a Docker image. 
 - Frontend use **Node.js & TypeScript**
-- API use **C# (.NET)**
+- Backend API use **C# (.NET)**
 
 Select the **default** version.
 

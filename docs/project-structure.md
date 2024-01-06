@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Project Structure
-parent: Development
 nav_order: 1
 ---
 
@@ -24,21 +23,9 @@ Sandcastle is a project to show moderne technologies:
 - Even more...
 
 ## Repositories
-### [utopiksandcastle.github.io](https://github.com/UtopikSandcastle/utopiksandcastle.github.io)
-Contain all the documentation and host this web site.
-
-### [sandcastle-app](https://github.com/UtopikSandcastle/sandcastle-app)
-Contain the web portal. The entry point of the project.
-
-### [security-frontend](https://github.com/UtopikSandcastle/security-frontend)
-Microfrontend related to the security API.
-
 [See all repositories](https://github.com/orgs/UtopikSandcastle/repositories)
 
-## Sandcastle App
-Sandcastle app is the entrypoint of the project. It's a web app that give access to others part of the portal. The project can be found here: [sandcastle-app](https://github.com/UtopikSandcastle/sandcastle-app)
-
-### Microfrontends
+## Microfrontends
 Microfrontends are an architectural style where a frontend application is decomposed into individual, semi-independent "micro-apps" working loosely together. This concept is similar to microservices architecture in backend development, but applied to frontend web development. The idea is to break down a web application into smaller, more manageable pieces that can be developed, tested, and deployed independently.
 
 [Learn more about Microfrontend](https://en.wikipedia.org/wiki/Microfrontend)
