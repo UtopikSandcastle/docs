@@ -16,8 +16,8 @@ title: Backend API
 
 ---
 
-## .NET 8
-.NET 8, is a free, open-source, cross-platform framework developed by Microsoft for building modern, cloud-based, and internet-connected applications. It is a significant redesign of the older .NET Framework, created to cater to the evolving needs of modern application development.
+## .NET 7
+.NET 7, is a free, open-source, cross-platform framework developed by Microsoft for building modern, cloud-based, and internet-connected applications. It is a significant redesign of the older .NET Framework, created to cater to the evolving needs of modern application development.
 
 The backend projects focusing on the ASP.NET Core.
 
@@ -85,6 +85,16 @@ Modify the file `.devcontainer/devcontainer.json` and replace the Docker image c
 ```
 Now Dev Container going the load Docker compose file before applying the Dev Container configuration.
 
+### Add OpenAPI tools to the Dec Container
+In the Dev Container file, add the following post command:
+```jsonc
+...
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "dotnet new tool-manifest && dotnet tool install Swashbuckle.AspNetCore.Cli --version 6.5.0",
+...
+```
+That tools can create OpenApi configuration file.
+
 ### Add Visual Studio Code Extensions to Dev Container
 In the Dev Container file, you can add Visual Studio Code extensions. For example:
 ```jsonc
@@ -133,7 +143,8 @@ Your file `devcontainer.json` should look like this:
   // },
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "dotnet restore",
+  "postCreateCommand": "dotnet new tool-manifest && dotnet tool install Swashbuckle.AspNetCore.Cli --version 6.5.0",
+
 
   // Configure tool-specific properties.
   "customizations": {
@@ -151,6 +162,21 @@ Your file `devcontainer.json` should look like this:
 
 ```
 
+### Generate OpenApi configuration file on build
+In the project file (`.csproj`) and add the following:
+```xml
+...
+  <Target Name="OpenAPI" AfterTargets="Build">
+      <Exec Command="dotnet swagger tofile --output openapi.json $(TargetPath) v1" WorkingDirectory="$(TargetDir)" />
+  </Target>
+```
+
+Install the OpenApi package:
+```bash
+dotnet add package Microsoft.AspNetCore.OpenApi --version 7.0.14
+```
+Now the file `openapi.json` can be found in `src/{project}/bin/Debug/net7.0/`
+
 ### Set Swagger as default page (Optional)
 Swagger is a tool that help to test the API. It show all endpoints and let you trigger actions. 
 
@@ -161,7 +187,7 @@ Once you project has been created, in the file `Program.cs`, change Swagger UI a
 ...
   app.UseSwaggerUI(c =>
   {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Utopik Sandcastle Security API V1");
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Utopik Sandcastle Access Control API V1");
     c.InjectStylesheet("/swagger/custom.css");
     c.RoutePrefix = String.Empty;
   });
@@ -179,4 +205,34 @@ builder.Services.AddSwaggerGen(c =>
   c.EnableAnnotations();
 });
 ...
+```
+
+### Dockerfile
+In the project directory, add a new file name `Dockerfile` within the following:
+```Dockerfile
+# Build project
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
+WORKDIR /App
+# Copy everything
+COPY . ./
+# Add OpenAPI tools
+RUN dotnet tool install Swashbuckle.AspNetCore.Cli --version 6.5.0
+# Restore as distinct layers
+RUN dotnet restore
+# Build and publish a release
+RUN dotnet publish -c Release -o out
+
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:7.0
+WORKDIR /App
+COPY --from=build-env /App/out .
+ENTRYPOINT ["bash", "-c", "dotnet `echo $(basename /App/*.deps.json .deps.json)`.dll"]
+```
+That file is used by the CI to build the docker image and publish it.
+
+The command `COPY` will also copy the `bin` directory and other unwanted files. That going to slow down the build process. To fix it, in the project directory add a new file named `.dockerignore` within the following:
+```
+Dockerfile
+**/[b|B]in/
+**/[O|o]bj/
 ```

@@ -1,8 +1,8 @@
 ---
 layout: default
 title: MongoDB
-parent: Security API
-nav_order: 1
+parent: Access Control API
+nav_order: 3
 ---
 
 # MongoDB

@@ -1,10 +1,10 @@
 ---
 has_children: true
 layout: default
-title: Sandcastle App
-nav_order: 2
+title: Security Frontend
+nav_order: 3
 ---
 
-# Sandcastle App
+# Security Frontend
 All about the Sandcastle App.
 {: .fs-6 .fw-300 }
