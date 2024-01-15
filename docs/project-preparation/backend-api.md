@@ -6,15 +6,6 @@ title: Backend API
 ---
 
 # Backend API
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
----
 
 ## .NET 7
 .NET 7, is a free, open-source, cross-platform framework developed by Microsoft for building modern, cloud-based, and internet-connected applications. It is a significant redesign of the older .NET Framework, created to cater to the evolving needs of modern application development.
@@ -22,6 +13,8 @@ title: Backend API
 The backend projects focusing on the ASP.NET Core.
 
 [Learn more about ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/)
+
+*Note: The required dependency Swashbuckle (Swagger/OpenAPI) is not supported on .NET 8 actually. [GitHub - dotnet - Swashbuckle is not supported on .NET 8](https://github.com/dotnet/AspNetCore.Docs/issues/31437)*
 
 ## Backend development
 ### Prerequisites

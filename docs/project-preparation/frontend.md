@@ -6,15 +6,6 @@ nav_order: 4
 ---
 
 # Frontend
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
----
 
 ## Angular
 Angular is a popular open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations. Angular is a complete rewrite from the same team that built AngularJS, its predecessor.

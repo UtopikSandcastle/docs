@@ -1,26 +1,15 @@
 ---
+has_children: true
 layout: default
-title: Project Structure
 nav_order: 1
+title: Project Structure
 ---
 
 # Project Structure
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
+<!-- Description here. -->
+{: .fs-6 .fw-300 }
 
 ---
-
-## Sandcastle
-Sandcastle is a project to show moderne technologies:
-- Microfrontend
-- Microservices
-- Event-Driven Architecture
-- Even more...
 
 ## Repositories
 [See all repositories](https://github.com/orgs/UtopikSandcastle/repositories)

@@ -6,15 +6,6 @@ nav_order: 1
 ---
 
 # Prerequisites
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
----
 
 ## Visual Studio Code
 Visual Studio Code, often abbreviated as VS Code, is a free, open-source code editor developed by Microsoft. It's available for Windows, macOS, and Linux operating systems. It's able to support for multiple pProgramming Languages, integrate debugging tools, remote development and more...

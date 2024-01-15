@@ -6,15 +6,6 @@ nav_order: 3
 ---
 
 # MongoDB
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
----
 
 ## Introduction
 MongoDB is a popular open-source NoSQL database program. It is known for its flexibility, scalability, and performance, particularly in handling large volumes of data and in applications where data structures can change over time.

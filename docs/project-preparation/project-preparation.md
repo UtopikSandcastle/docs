@@ -1,8 +1,9 @@
 ---
 has_children: true
+has_toc: false
 layout: default
 title: Project Preparation
-nav_order: 1
+nav_order: 2
 ---
 
 # Project Preparation
