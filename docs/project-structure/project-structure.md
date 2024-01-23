@@ -1,34 +1,20 @@
 ---
+has_children: true
+has_toc: false
 layout: default
-title: Project Structure
 nav_order: 1
+title: Project Structure
 ---
 
 # Project Structure
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
+<!-- Description here. -->
+{: .fs-6 .fw-300 }
 
 ---
-
-## Sandcastle
-Sandcastle is a project to show moderne technologies:
-- Microfrontend
-- Microservices
-- Event-Driven Architecture
-- Even more...
-
-## Repositories
-[See all repositories](https://github.com/orgs/UtopikSandcastle/repositories)
-
 ## Microfrontends
 Microfrontends are an architectural style where a frontend application is decomposed into individual, semi-independent "micro-apps" working loosely together. This concept is similar to microservices architecture in backend development, but applied to frontend web development. The idea is to break down a web application into smaller, more manageable pieces that can be developed, tested, and deployed independently.
 
-[Learn more about Microfrontend](https://en.wikipedia.org/wiki/Microfrontend)
+[Learn more about Microfrontend]({% link docs/project-structure/microfrontends.md %})
 
 Every Sandcastle's microfrontend has it's own repository. Their repository name ending by "frontend" and could be found here: [UtopikSandcastle's repositories](https://github.com/orgs/UtopikSandcastle/repositories).
 
@@ -45,3 +31,6 @@ Event-driven architecture (EDA) is a software design pattern in which decoupled 
 [Learn more about Event-Driven Architecture](https://en.wikipedia.org/wiki/Event-driven_architecture)
 
 Some Sandcastle's microservice react to event to process particular action. For example: on security alert, some staff may have to protect the service they have on charge.
+
+## Repositories
+[See all repositories](https://github.com/orgs/UtopikSandcastle/repositories)

@@ -6,15 +6,6 @@ nav_order: 2
 ---
 
 # Project Creation
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
----
 
 ## Prerequisites
 See [Project Preparation - Backend API]({% link docs/project-preparation/backend-api.md %})

@@ -6,15 +6,6 @@ nav_order: 2
 ---
 
 # Developing inside a Container
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
----
 
 ## References
 - [Learn more about Development Containers](https://containers.dev/)
