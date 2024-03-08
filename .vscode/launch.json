@@ -3,7 +3,7 @@
   "configurations": [
       {
           "name": "Launch Jekyll with Browser",
-          "type": "chrome",
+          "type": "msedge",
           "request": "launch",
           "url": "http://localhost:4000",
           "webRoot": "${workspaceFolder}",
